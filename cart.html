@@ -132,6 +132,7 @@
         .totals-section {
             animation: slideIn 0.5s ease-in-out;
         }
+
         /* Continuous Bouncy Logo Animation */
         .animate-continuous-bounce-logo {
             animation: bounceLogo 1.5s ease-in-out infinite;
@@ -178,27 +179,41 @@
     <!-- Header Section -->
     <section id="site-header">
         <header class="sticky top-0 z-50">
+            <!-- 🌐 Responsive Top Navbar -->
             <div class="bg-gray-900 text-white py-2">
                 <div
                     class="container mx-auto px-4 flex flex-col md:flex-row md:justify-between md:items-center space-y-2 md:space-y-0">
+
+                    <!-- ⏰ Business Hours -->
                     <div class="text-sm font-medium flex items-center justify-center md:justify-start space-x-2">
                         <i class="far fa-clock text-orange-400"></i>
                         <span>Business Hours: 10 AM - 7 PM</span>
                     </div>
+
+                    <!-- 📧 Contact + Social Links -->
                     <div
                         class="flex flex-col md:flex-row items-center justify-center md:space-x-4 space-y-2 md:space-y-0">
+
+                        <!-- Email -->
                         <a href="mailto:info@kunashenterprises.com"
                             class="text-sm hover:text-orange-400 flex items-center space-x-1">
                             <i class="fas fa-envelope text-orange-400"></i>
                             <span>info@kunashenterprises.com</span>
                         </a>
+
+                        <!-- Divider -->
                         <span class="hidden md:block h-4 w-px bg-gray-600"></span>
+
+                        <!-- Phone -->
                         <a href="tel:+1234567890" class="text-sm hover:text-orange-400 flex items-center space-x-1">
                             <i class="fas fa-phone-alt text-orange-400"></i>
                             <span>+91 93708 12640</span>
                         </a>
+
+                        <!-- Divider -->
                         <span class="hidden md:block h-4 w-px bg-gray-600"></span>
-                         <!-- 🌐 Social Icons -->
+
+                        <!-- 🌐 Social Icons -->
                         <div class="flex items-center space-x-3">
                             <a href="https://www.facebook.com/p/Kunash-Enterprises-100095164553847/" target="_blank"
                                 class="hover:text-orange-400">
@@ -216,28 +231,47 @@
                                 <i class="fab fa-linkedin-in text-orange-400 text-lg"></i>
                             </a>
                         </div>
+
                     </div>
                 </div>
             </div>
+
+            <!-- Main Header/Navbar -->
             <div class="bg-white shadow-md">
                 <div class="container mx-auto px-4 py-3 flex justify-between items-center">
                     <div class="flex items-center">
-                        <img src="images/logoo.png" alt="Kunash Enterprises"
-                            class="w-32 md:w-40 lg:w-48 object-contain">
+                        <img src="images/logoo.png" alt="Kunash Enterprises" class="w-32 md:w-40 lg:w-48 object-contain">
                     </div>
+            
+                    <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-8">
-                        <a href="index.html" class="text-gray-700 hover:text-orange-600">Home</a>
+                        <a href="index.html" class="text-orange-600 font-medium">Home</a>
                         <a href="products.html" class="text-gray-700 hover:text-orange-600">Products</a>
                         <a href="services.html" class="text-gray-700 hover:text-orange-600">Services</a>
                         <a href="about.html" class="text-gray-700 hover:text-orange-600">About</a>
                         <a href="contact.html" class="text-gray-700 hover:text-orange-600">Contact</a>
                     </nav>
+            
                     <div class="flex items-center space-x-4">
+                        <!-- Wishlist Icon (Always Visible) -->
+                        <a href="wishlist.html" class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-heart text-gray-700 text-xl"></i>
+                            <span id="wishlistCount" class="absolute -top-1 -right-1 bg-orange-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                        </a>
+            
+                        <!-- Cart Icon (Always Visible) -->
+                        <a href="cart.html" class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-shopping-cart text-orange-600 text-xl"></i>
+                            <span id="cartCount" class="absolute -top-1 -right-1 bg-orange-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                        </a>
+            
+                        <!-- User Profile Dropdown -->
                         <div class="relative" id="userProfileDropdown">
-                            <button id="userMenuButton"
-                                class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                            <button id="userMenuButton" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
                                 <i class="fas fa-user text-gray-700"></i>
                             </button>
+            
+                            <!-- Dropdown Menu (Not Logged In) -->
                             <div id="guestMenu"
                                 class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden border border-gray-200">
                                 <a href="login.html"
@@ -249,43 +283,52 @@
                                     <i class="fas fa-user-plus mr-2"></i>Sign Up
                                 </a>
                             </div>
+            
+                            <!-- Dropdown Menu (Logged In) -->
                             <div id="userMenu"
                                 class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden border border-gray-200">
                                 <div class="px-4 py-2 border-b text-sm">
                                     <p class="font-medium text-gray-800">Hello, User!</p>
                                     <p class="text-xs text-gray-500">user@example.com</p>
                                 </div>
-                                <a href="cart.html"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600 font-medium">
-                                    <i class="fas fa-shopping-cart mr-2"></i>Cart
-                                </a>
-                                <a href="wishlist.html"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
-                                    <i class="fas fa-heart mr-2"></i>Wishlist
-                                </a>
                                 <a href="settings.html"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
                                     <i class="fas fa-cog mr-2"></i>Account Settings
                                 </a>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600"
-                                    id="logoutButton">
+                                <a href="#" id="logoutButton"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
                                     <i class="fas fa-sign-out-alt mr-2"></i>Logout
                                 </a>
                             </div>
                         </div>
+            
+                        <!-- Mobile Menu Button -->
                         <button id="mobileMenuButton" class="md:hidden text-gray-700">
                             <i class="fas fa-bars text-xl"></i>
                         </button>
                     </div>
                 </div>
-                <div id="mobileMenu" class="hidden md:hidden bg-white py-4 px-4 absolute w-full shadow-lg">
-                    <a href="index.html" class="block py-2 text-gray-700 hover:text-orange-600">Home</a>
+            
+                <!-- Mobile Navigation -->
+                <div id="mobileMenu" class="hidden md:hidden bg-white py-4 px-4 absolute w-full shadow-lg z-40">
+                    <a href="index.html" class="block py-2 text-orange-600 font-medium">Home</a>
                     <a href="products.html" class="block py-2 text-gray-700 hover:text-orange-600">Products</a>
                     <a href="services.html" class="block py-2 text-gray-700 hover:text-orange-600">Services</a>
                     <a href="about.html" class="block py-2 text-gray-700 hover:text-orange-600">About</a>
                     <a href="contact.html" class="block py-2 text-gray-700 hover:text-orange-600">Contact</a>
-                    <div class="border-t mt-2 pt-2" id="mobileUserMenu">
+            
+                    <div class="flex justify-around border-t pt-4 mt-4">
+                        <a href="wishlist.html" class="flex flex-col items-center text-gray-700 hover:text-orange-600">
+                            <i class="fas fa-heart text-2xl"></i>
+                            <span class="text-xs mt-1">Wishlist</span>
+                        </a>
+                        <a href="cart.html" class="flex flex-col items-center text-orange-600">
+                            <i class="fas fa-shopping-cart text-2xl"></i>
+                            <span class="text-xs mt-1">Cart</span>
+                        </a>
+                    </div>
+            
+                    <div class="border-t mt-4 pt-4">
                         <a href="login.html" class="block py-2 text-gray-700 hover:text-orange-600">
                             <i class="fas fa-sign-in-alt mr-2"></i>Login
                         </a>
@@ -304,6 +347,7 @@
             <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">Your Cart</h1>
             <div id="cartContainer" class="bg-white rounded-lg shadow-md p-6">
                 <div id="emptyCart" class="text-center hidden">
+                    <i class="fas fa-shopping-cart text-6xl text-gray-300 mb-4"></i>
                     <p class="text-gray-600 text-lg mb-4">Your cart is empty.</p>
                     <a href="products.html"
                         class="inline-block bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition transform hover:-translate-y-1">Shop
@@ -311,13 +355,24 @@
                 </div>
                 <div id="cartItems" class="space-y-4"></div>
                 <div id="cartTotals" class="mt-6 pt-6 border-t border-gray-200 totals-section hidden">
-                    <div class="flex justify-between text-lg font-semibold">
-                        <span>Total:</span>
-                        <span id="cartTotal">$0.00</span>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Subtotal:</span>
+                            <span id="cartSubtotal" class="font-medium">₹0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Shipping:</span>
+                            <span class="font-medium text-green-600">FREE</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-semibold">
+                            <span>Total:</span>
+                            <span id="cartTotal" class="text-orange-600">₹0.00</span>
+                        </div>
                     </div>
                     <button id="checkoutButton"
-                        class="mt-4 w-full bg-orange-600 text-white py-3 rounded-lg font-medium hover:bg-orange-700 transition transform hover:-translate-y-1">Proceed
-                        to Checkout</button>
+                        class="mt-4 w-full bg-orange-600 text-white py-3 rounded-lg font-medium hover:bg-orange-700 transition transform hover:-translate-y-1">
+                        Proceed to Checkout
+                    </button>
                 </div>
             </div>
         </div>
@@ -461,7 +516,6 @@
         </div>
     </footer>
 
-    
     <!-- Live Chat Button -->
     <a href="https://wa.me/9370812640" target="_blank">
         <div class="fixed bottom-5 left-5 bg-green-500 text-white p-3 rounded-full shadow-lg z-50 cursor-pointer">
@@ -469,35 +523,27 @@
         </div>
     </a>
 
-    <script src="scripts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Header User Menu
             const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
             const guestMenu = document.getElementById('guestMenu');
             const userMenu = document.getElementById('userMenu');
-            const mobileUserMenu = document.getElementById('mobileUserMenu');
             const logoutButton = document.getElementById('logoutButton');
+
+            // Update menu content based on login status
             if (isLoggedIn) {
                 const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
                 userMenu.querySelector('.font-medium').textContent = `Hello, ${currentUser.username || 'User'}!`;
                 userMenu.querySelector('.text-xs').textContent = currentUser.email || '';
                 guestMenu.classList.add('hidden');
                 userMenu.classList.remove('hidden');
-                mobileUserMenu.innerHTML = `
-                    <a href="cart.html" class="block py-2 text-orange-600 font-medium"><i class="fas fa-shopping-cart mr-2"></i>Cart</a>
-                    <a href="wishlist.html" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-heart mr-2"></i>Wishlist</a>
-                    <a href="settings.html" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-cog mr-2"></i>Account Settings</a>
-                    <a href="#" class="block py-2 text-gray-700 hover:text-orange-600" id="mobileLogoutButton"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
-                `;
             } else {
                 userMenu.classList.add('hidden');
                 guestMenu.classList.remove('hidden');
-                mobileUserMenu.innerHTML = `
-                    <a href="login.html" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
-                    <a href="signup.html" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-user-plus mr-2"></i>Sign Up</a>
-                `;
             }
+
+            // Toggle user menu on profile icon click
             document.getElementById('userMenuButton').addEventListener('click', function (e) {
                 e.stopPropagation();
                 if (isLoggedIn) {
@@ -508,12 +554,16 @@
                     userMenu.classList.add('hidden');
                 }
             });
+
+            // Close menus when clicking outside
             document.addEventListener('click', function (e) {
                 if (!e.target.closest('#userProfileDropdown')) {
                     guestMenu.classList.add('hidden');
                     userMenu.classList.add('hidden');
                 }
             });
+
+            // Logout functionality
             if (logoutButton) {
                 logoutButton.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -523,15 +573,7 @@
                     window.location.reload();
                 });
             }
-            if (document.getElementById('mobileLogoutButton')) {
-                document.getElementById('mobileLogoutButton').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    localStorage.removeItem('isLoggedIn');
-                    localStorage.removeItem('currentUser');
-                    alert('Logged out successfully!');
-                    window.location.reload();
-                });
-            }
+
             // Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobileMenuButton');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -546,12 +588,15 @@
                 }
                 menuOpen = !menuOpen;
             });
+
             // Scroll Progress Bar
             window.onscroll = function () {
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (winScroll / height) * 100;
                 document.querySelector('.progress-bar').style.width = scrolled + '%';
+
+                // Show/hide back to top button
                 const backToTop = document.getElementById('backToTop');
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                     backToTop.classList.remove('opacity-0');
@@ -561,86 +606,192 @@
                     backToTop.classList.add('opacity-0');
                 }
             };
+
+            // Back to top functionality
             document.getElementById('backToTop').addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+
             // Cart Functionality
-            const userId = isLoggedIn ? JSON.parse(localStorage.getItem('currentUser')).email : 'guest';
             const cartItemsContainer = document.getElementById('cartItems');
             const emptyCart = document.getElementById('emptyCart');
             const cartTotals = document.getElementById('cartTotals');
+            const cartSubtotal = document.getElementById('cartSubtotal');
             const cartTotal = document.getElementById('cartTotal');
+            const cartCount = document.getElementById('cartCount');
+            const wishlistCount = document.getElementById('wishlistCount');
+
             function renderCart() {
-                const cart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cartItemsContainer.innerHTML = '';
+                
+                // Update cart count in header
+                if (cart.length > 0) {
+                    const totalItems = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+                    cartCount.textContent = totalItems;
+                    cartCount.classList.remove('hidden');
+                } else {
+                    cartCount.classList.add('hidden');
+                }
+
                 if (cart.length === 0) {
                     emptyCart.classList.remove('hidden');
                     cartTotals.classList.add('hidden');
                     return;
                 }
+                
                 emptyCart.classList.add('hidden');
                 cartTotals.classList.remove('hidden');
-                let total = 0;
+                
+                let subtotal = 0;
+                
                 cart.forEach((item, index) => {
                     const itemTotal = item.price * (item.quantity || 1);
-                    total += itemTotal;
+                    subtotal += itemTotal;
+                    
                     const cartItem = document.createElement('div');
                     cartItem.className = 'flex items-center justify-between p-4 border-b border-gray-200 cart-item';
                     cartItem.innerHTML = `
-                        <div class="flex items-center space-x-4">
-                            <img src="${item.image || 'https://via.placeholder.com/150'}" alt="${item.name}" class="w-16 h-16 object-cover rounded">
-                            <div>
-                                <h3 class="text-lg font-medium">${item.name}</h3>
-                                <p class="text-gray-600">$${item.price.toFixed(2)}</p>
+                        <div class="flex items-center space-x-4 flex-1">
+                            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold">${item.name}</h3>
+                                <p class="text-orange-600 font-bold text-xl">₹${item.price.toLocaleString()}</p>
+                                <div class="flex items-center space-x-4 mt-2">
+                                    <div class="flex items-center space-x-2">
+                                        <button class="decrease-quantity w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 transition flex items-center justify-center" data-index="${index}">
+                                            <i class="fas fa-minus text-sm"></i>
+                                        </button>
+                                        <span class="text-lg font-medium w-8 text-center">${item.quantity || 1}</span>
+                                        <button class="increase-quantity w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 transition flex items-center justify-center" data-index="${index}">
+                                            <i class="fas fa-plus text-sm"></i>
+                                        </button>
+                                    </div>
+                                    <span class="text-gray-600">Total: ₹${itemTotal.toLocaleString()}</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="flex items-center space-x-2">
-                                <button class="decrease-quantity bg-gray-200 p-1 rounded hover:bg-gray-300 transition" data-index="${index}">-</button>
-                                <span class="text-lg">${item.quantity || 1}</span>
-                                <button class="increase-quantity bg-gray-200 p-1 rounded hover:bg-gray-300 transition" data-index="${index}">+</button>
-                            </div>
-                            <button class="remove-item text-red-600 hover:text-red-800 transition" data-index="${index}">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
+                        <button class="remove-item text-red-600 hover:text-red-800 transition ml-4" data-index="${index}" title="Remove from Cart">
+                            <i class="fas fa-trash text-xl"></i>
+                        </button>
                     `;
                     cartItemsContainer.appendChild(cartItem);
                 });
-                cartTotal.textContent = `$${total.toFixed(2)}`;
+                
+                cartSubtotal.textContent = `₹${subtotal.toLocaleString()}`;
+                cartTotal.textContent = `₹${subtotal.toLocaleString()}`;
             }
-            renderCart();
-            cartItemsContainer.addEventListener('click', (e) => {
-                const cart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
+
+            // Remove item from cart
+            function removeFromCart(index) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const removedItem = cart[index];
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+                showNotification(`${removedItem.name} removed from cart!`, 'info');
+            }
+
+            // Update quantity
+            function updateQuantity(index, change) {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart[index].quantity = (cart[index].quantity || 1) + change;
+                
+                // Remove item if quantity becomes 0
+                if (cart[index].quantity <= 0) {
+                    removeFromCart(index);
+                    return;
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            }
+
+            // Show notification
+            function showNotification(message, type) {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 transition-transform transform translate-x-full ${type === 'success' ? 'bg-green-500' : 'bg-blue-500'} text-white`;
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'} mr-2"></i>
+                        <span>${message}</span>
+                    </div>
+                `;
+                
+                // Add to page
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.classList.remove('translate-x-full');
+                    notification.classList.add('translate-x-0');
+                }, 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.classList.remove('translate-x-0');
+                    notification.classList.add('translate-x-full');
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+
+            // Update wishlist count in header
+            function updateWishlistCount() {
+                const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                if (wishlist.length > 0) {
+                    wishlistCount.textContent = wishlist.length;
+                    wishlistCount.classList.remove('hidden');
+                } else {
+                    wishlistCount.classList.add('hidden');
+                }
+            }
+
+            // Event delegation for cart actions
+            cartItemsContainer.addEventListener('click', function(e) {
                 if (e.target.closest('.remove-item')) {
-                    const index = e.target.closest('.remove-item').dataset.index;
-                    cart.splice(index, 1);
-                    localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-                    renderCart();
+                    const index = parseInt(e.target.closest('.remove-item').getAttribute('data-index'));
+                    removeFromCart(index);
                 }
+                
                 if (e.target.closest('.increase-quantity')) {
-                    const index = e.target.closest('.increase-quantity').dataset.index;
-                    cart[index].quantity = (cart[index].quantity || 1) + 1;
-                    localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-                    renderCart();
+                    const index = parseInt(e.target.closest('.increase-quantity').getAttribute('data-index'));
+                    updateQuantity(index, 1);
                 }
+                
                 if (e.target.closest('.decrease-quantity')) {
-                    const index = e.target.closest('.decrease-quantity').dataset.index;
-                    if (cart[index].quantity > 1) {
-                        cart[index].quantity -= 1;
-                        localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-                        renderCart();
-                    }
+                    const index = parseInt(e.target.closest('.decrease-quantity').getAttribute('data-index'));
+                    updateQuantity(index, -1);
                 }
             });
-            document.getElementById('checkoutButton').addEventListener('click', () => {
+
+            // Checkout button - FIXED VERSION
+            document.getElementById('checkoutButton').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                if (cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+
                 if (!isLoggedIn) {
                     alert('Please log in to proceed to checkout.');
                     window.location.href = 'login.html';
                     return;
                 }
-                alert('Proceeding to checkout (placeholder).');
+                
+                // Redirect to checkout page
+                window.location.href = 'checkout.html';
             });
+
+            // Initial render
+            renderCart();
+            updateWishlistCount();
+
             // Apply Dark Mode if Set
             if (localStorage.getItem('darkMode') === 'true') {
                 document.body.classList.add('dark-mode');
@@ -648,5 +799,4 @@
         });
     </script>
 </body>
-
 </html>

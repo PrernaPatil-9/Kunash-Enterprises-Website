@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - TechBazaar</title>
+    <title>Checkout - Kunash Enterprises</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -58,7 +58,7 @@
             border-color: #ef4444;
         }
 
-         /* Continuous Bouncy Logo Animation */
+        /* Continuous Bouncy Logo Animation */
         .animate-continuous-bounce-logo {
             animation: bounceLogo 1.5s ease-in-out infinite;
         }
@@ -98,7 +98,7 @@
             <div class="flex items-center justify-between py-4">
                 <div class="flex items-center space-x-12">
                     <a href="index.html" class="flex items-center">
-                        <img src="images/logoo.png" alt="TechBazaar Logo"
+                        <img src="images/logoo.png" alt="Kunash Enterprises Logo"
                             class="w-20 h-20 object-contain -my-4 scale-150">
                     </a>
                     <div class="hidden md:flex items-center space-x-6 text-sm">
@@ -157,6 +157,18 @@
                         </div>
                     </div>
 
+                    <div class="flex-1 h-1 bg-gray-200 mx-4"></div>
+
+                    <div class="flex items-center">
+                        <div
+                            class="progress-step w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gray-200 text-gray-500">
+                            3
+                        </div>
+                        <div class="ml-3">
+                            <div class="text-sm font-medium text-gray-500">Confirmation</div>
+                            <div class="text-xs text-gray-400">Order complete</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,7 +186,7 @@
                             <h2 class="text-xl font-bold text-gray-900">Contact Information</h2>
                             <div class="flex items-center space-x-2 text-sm text-gray-600">
                                 <i class="fas fa-user"></i>
-                                <span>Already have an account? <a href="#" class="text-orange-600 hover:underline">Log
+                                <span>Already have an account? <a href="login.html" class="text-orange-600 hover:underline">Log
                                         in</a></span>
                             </div>
                         </div>
@@ -424,7 +436,9 @@
                     <div class="bg-white rounded-xl shadow-sm border sticky top-4">
                         <div class="p-6 border-b">
                             <h3 class="text-lg font-bold text-gray-900 mb-4">Order Summary</h3>
-                            <div id="orderItems" class="space-y-4 max-h-96 overflow-y-auto"></div>
+                            <div id="orderItems" class="space-y-4 max-h-96 overflow-y-auto">
+                                <!-- Cart items will be dynamically loaded here -->
+                            </div>
                         </div>
                         <div class="p-6 space-y-3">
                             <div class="flex justify-between text-sm">
@@ -436,7 +450,7 @@
                                 <span id="shippingCost" class="font-medium text-green-600">FREE</span>
                             </div>
                             <div class="flex justify-between text-sm">
-                                <span class="text-gray-600">Tax</span>
+                                <span class="text-gray-600">Tax (18%)</span>
                                 <span id="taxAmount" class="font-medium">₹0</span>
                             </div>
                             <div class="flex justify-between text-sm">
@@ -487,19 +501,19 @@
                         exceptional service.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#"
+                        <a href="https://www.facebook.com/p/Kunash-Enterprises-100095164553847/"
                             class="bg-orange-600 hover:bg-orange-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#"
+                        <a href="https://www.arattai.in/"
                             class="bg-orange-600 hover:bg-orange-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
-                            <i class="fab fa-twitter"></i>
+                            <span class="text-sm font-bold">A</span>
                         </a>
-                        <a href="#"
+                        <a href="https://www.instagram.com/kunashenterprise/"
                             class="bg-orange-600 hover:bg-orange-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#"
+                        <a href="https://www.linkedin.com/posts/kunash-enterprises-858379264_lenovo-thinkpad-x390-intel-core-i5-8th-generation-activity-7064473781410381825-R31H/"
                             class="bg-orange-600 hover:bg-orange-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
@@ -611,14 +625,7 @@
         </div>
     </footer>
 
-    <script>
-        // Redirect to order-confirmation page when "Place Order" button is clicked
-        document.getElementById("placeOrderBtn").addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default form submission if inside a form
-            window.location.href = "order-confirmation.html"; // Redirect to confirmation page
-        });
-    </script>
-    <script src="checkout.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
 
 </html>

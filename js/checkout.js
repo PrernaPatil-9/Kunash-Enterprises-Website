@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('Checkout page loaded');
     initCheckoutPage();
 });
 
@@ -57,11 +58,11 @@ function displayOrderItems() {
                  onerror="this.src='https://via.placeholder.com/80x80?text=Product'">
             <div class="flex-1 min-w-0">
                 <h4 class="font-medium text-gray-900 text-sm truncate">${sanitizeHTML(item.name)}</h4>
-                <p class="text-gray-500 text-xs mt-1">Qty: ${item.quantity}</p>
+                <p class="text-gray-500 text-xs mt-1">Qty: ${item.quantity || 1}</p>
                 <div class="flex items-center justify-between mt-2">
-                    <span class="text-orange-600 font-semibold">₹${(item.price * item.quantity).toLocaleString('en-IN')}</span>
+                    <span class="text-orange-600 font-semibold">₹${((item.price || 0) * (item.quantity || 1)).toLocaleString('en-IN')}</span>
                     ${item.originalPrice ? `
-                        <span class="text-gray-400 text-xs line-through">₹${(item.originalPrice * item.quantity).toLocaleString('en-IN')}</span>
+                        <span class="text-gray-400 text-xs line-through">₹${((item.originalPrice || 0) * (item.quantity || 1)).toLocaleString('en-IN')}</span>
                     ` : ''}
                 </div>
             </div>
@@ -71,17 +72,31 @@ function displayOrderItems() {
 
 // Calculate order summary
 function calculateOrderSummary() {
-    if (cartItems.length === 0) return;
+    if (cartItems.length === 0) {
+        updateOrderSummaryDisplay();
+        return;
+    }
 
-    orderSummary.subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    // Calculate subtotal
+    orderSummary.subtotal = cartItems.reduce((total, item) => {
+        return total + ((item.price || 0) * (item.quantity || 1));
+    }, 0);
+
+    // Get shipping cost
     const shippingRadio = document.querySelector('input[name="shipping"]:checked');
     orderSummary.shipping = shippingRadio ? {
         standard: 0,
         express: 199,
         'same-day': 399
     }[shippingRadio.value] || 0 : 0;
+
+    // Calculate tax (18% GST)
     orderSummary.tax = orderSummary.subtotal * 0.18;
+
+    // Calculate discount (10% if order over ₹50,000)
     orderSummary.discount = orderSummary.subtotal > 50000 ? orderSummary.subtotal * 0.1 : 0;
+
+    // Calculate total
     orderSummary.total = orderSummary.subtotal + orderSummary.tax + orderSummary.shipping - orderSummary.discount;
 
     updateOrderSummaryDisplay();
@@ -97,14 +112,27 @@ function updateOrderSummaryDisplay() {
         totalAmount: document.getElementById('totalAmount')
     };
 
-    if (elements.subtotal) elements.subtotal.textContent = `₹${Math.round(orderSummary.subtotal).toLocaleString('en-IN')}`;
-    if (elements.taxAmount) elements.taxAmount.textContent = `₹${Math.round(orderSummary.tax).toLocaleString('en-IN')}`;
-    if (elements.discount) elements.discount.textContent = `-₹${Math.round(orderSummary.discount).toLocaleString('en-IN')}`;
+    if (elements.subtotal) {
+        elements.subtotal.textContent = `₹${Math.round(orderSummary.subtotal).toLocaleString('en-IN')}`;
+    }
+    
+    if (elements.taxAmount) {
+        elements.taxAmount.textContent = `₹${Math.round(orderSummary.tax).toLocaleString('en-IN')}`;
+    }
+    
+    if (elements.discount) {
+        elements.discount.textContent = `-₹${Math.round(orderSummary.discount).toLocaleString('en-IN')}`;
+        elements.discount.className = `font-medium ${orderSummary.discount > 0 ? 'text-green-600' : 'text-gray-900'}`;
+    }
+    
     if (elements.shippingCost) {
         elements.shippingCost.textContent = orderSummary.shipping === 0 ? 'FREE' : `₹${orderSummary.shipping.toLocaleString('en-IN')}`;
         elements.shippingCost.className = `font-medium ${orderSummary.shipping === 0 ? 'text-green-600' : 'text-gray-900'}`;
     }
-    if (elements.totalAmount) elements.totalAmount.textContent = `₹${Math.round(orderSummary.total).toLocaleString('en-IN')}`;
+    
+    if (elements.totalAmount) {
+        elements.totalAmount.textContent = `₹${Math.round(orderSummary.total).toLocaleString('en-IN')}`;
+    }
 }
 
 // Show empty cart message
@@ -129,6 +157,16 @@ function showEmptyCartMessage() {
         placeOrderBtn.classList.add('opacity-50', 'cursor-not-allowed');
         placeOrderBtn.classList.remove('hover:bg-orange-700', 'hover:shadow-xl');
     }
+
+    // Update summary to show zeros
+    orderSummary = {
+        subtotal: 0,
+        shipping: 0,
+        tax: 0,
+        discount: 0,
+        total: 0
+    };
+    updateOrderSummaryDisplay();
 }
 
 // Setup event listeners
@@ -176,7 +214,8 @@ function setupEventListeners() {
 
             const cardDetails = document.getElementById('cardDetails');
             if (cardDetails) {
-                cardDetails.classList.toggle('hidden', this.querySelector('span').textContent !== 'Credit/Debit Card');
+                const isCardPayment = this.querySelector('span').textContent === 'Credit/Debit Card';
+                cardDetails.style.display = isCardPayment ? 'block' : 'none';
             }
         });
     });
@@ -261,13 +300,13 @@ function validateField(field) {
             errorMessage = 'Please enter a valid 6-digit PIN code';
             break;
         case 'cardNumber':
-            if (field.value && !document.getElementById('cardDetails').classList.contains('hidden')) {
+            if (field.value && document.getElementById('cardDetails').style.display !== 'none') {
                 isValid = /^\d{16}$/.test(field.value.replace(/\s/g, ''));
                 errorMessage = 'Please enter a valid 16-digit card number';
             }
             break;
         case 'expiryDate':
-            if (field.value && !document.getElementById('cardDetails').classList.contains('hidden')) {
+            if (field.value && document.getElementById('cardDetails').style.display !== 'none') {
                 isValid = /^(0[1-9]|1[0-2])\/\d{2}$/.test(field.value);
                 if (isValid) {
                     const [month, year] = field.value.split('/');
@@ -280,7 +319,7 @@ function validateField(field) {
             }
             break;
         case 'cvv':
-            if (field.value && !document.getElementById('cardDetails').classList.contains('hidden')) {
+            if (field.value && document.getElementById('cardDetails').style.display !== 'none') {
                 isValid = /^\d{3,4}$/.test(field.value);
                 errorMessage = 'Please enter a valid CVV (3 or 4 digits)';
             }
@@ -427,7 +466,7 @@ function validateCardDetails() {
 
     fields.forEach(field => {
         const input = document.getElementById(field.id);
-        if (input && !document.getElementById('cardDetails').classList.contains('hidden')) {
+        if (input && document.getElementById('cardDetails').style.display !== 'none') {
             const value = input.value.replace(/\s/g, '');
             if (!field.regex.test(value)) {
                 showFieldError(input, field.message);
@@ -560,8 +599,9 @@ function generateOrderId() {
 function updateCartCount() {
     const cartCount = document.getElementById('cartCount');
     if (cartCount) {
-        const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+        const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
         cartCount.textContent = totalItems;
+        cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
     }
 }
 
@@ -629,6 +669,7 @@ function initializePaymentUI() {
 
 // Sanitize HTML to prevent XSS
 function sanitizeHTML(str) {
+    if (!str) return '';
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;

@@ -522,10 +522,18 @@ function displayProducts() {
     
     // Generate product cards with consistent height
     grid.innerHTML = productsToShow.map(product => `
-        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 flex flex-col h-full" 
+        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 flex flex-col h-full relative" 
              data-category="${product.category}" 
              data-brand="${product.brand}" 
              data-price="${product.price}">
+            
+            <!-- Wishlist Icon -->
+            <button class="absolute top-2 right-2 z-10 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-300 hover:bg-orange-50 hover:scale-110 wishlist-btn" 
+                    data-product-id="${product.id}"
+                    title="Add to Wishlist">
+                <i class="fas fa-heart text-gray-400 hover:text-red-500"></i>
+            </button>
+            
             <div class="relative overflow-hidden flex-shrink-0">
                 <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover transition duration-500 hover:scale-105">
                 ${getProductBadges(product)}
@@ -548,8 +556,35 @@ function displayProducts() {
         </div>
     `).join('');
     
+    // Add event listeners to wishlist buttons
+    setupWishlistEventListeners();
+    
     // Generate pagination
     generatePagination(totalPages);
+}
+
+// Setup wishlist event listeners
+function setupWishlistEventListeners() {
+    document.querySelectorAll('.wishlist-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const productId = parseInt(this.getAttribute('data-product-id'));
+            addToWishlist(productId);
+            
+            // Visual feedback
+            const icon = this.querySelector('i');
+            icon.classList.remove('text-gray-400', 'hover:text-red-500');
+            icon.classList.add('text-red-500');
+            this.classList.add('bg-red-50');
+            
+            // Reset animation after 1 second
+            setTimeout(() => {
+                icon.classList.remove('text-red-500');
+                icon.classList.add('text-gray-400', 'hover:text-red-500');
+                this.classList.remove('bg-red-50');
+            }, 1000);
+        });
+    });
 }
 
 // Get product badges based on product properties
@@ -676,14 +711,17 @@ function addToWishlist(productId) {
             id: product.id,
             name: product.name,
             price: product.price,
-            image: product.image
+            image: product.image,
+            description: product.description,
+            category: product.category,
+            brand: product.brand
         });
         
         // Save back to localStorage
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
         
         // Show success message
-        showNotification(`${product.name} added to wishlist!`, 'success');
+        showNotification(`${product.name} added to wishlist successfully!`, 'success');
     } else {
         showNotification(`${product.name} is already in your wishlist!`, 'info');
     }

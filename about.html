@@ -236,27 +236,42 @@
     </button>
 
     <!-- Header Section -->
-    <header class="sticky top-0 z-50 bg-white shadow-md dark-mode:bg-gray-800">
-        <div class="bg-gray-900 text-white py-2">
-            <div
-                class="container mx-auto px-4 flex flex-col md:flex-row md:justify-between md:items-center space-y-2 md:space-y-0">
-                <div class="text-sm font-medium flex items-center justify-center md:justify-start space-x-2">
-                    <i class="far fa-clock text-orange-400"></i>
-                    <span>Business Hours: 10 AM - 7 PM</span>
-                </div>
-                <div class="flex flex-col md:flex-row items-center justify-center md:space-x-4 space-y-2 md:space-y-0">
-                    <a href="mailto:info@kunashenterprises.com"
-                        class="text-sm hover:text-orange-400 flex items-center space-x-1">
-                        <i class="fas fa-envelope text-orange-400"></i>
-                        <span>info@kunashenterprises.com</span>
-                    </a>
-                    <span class="hidden md:block h-4 w-px bg-gray-600"></span>
-                    <a href="tel:+1234567890" class="text-sm hover:text-orange-400 flex items-center space-x-1">
-                        <i class="fas fa-phone-alt text-orange-400"></i>
-                        <span>+91 93708 12640</span>
-                    </a>
-                    <span class="hidden md:block h-4 w-px bg-gray-600"></span>
-                    <!-- 🌐 Social Icons -->
+    <header class="sticky top-0 z-50">
+            <!-- 🌐 Responsive Top Navbar -->
+            <div class="bg-gray-900 text-white py-2">
+                <div
+                    class="container mx-auto px-4 flex flex-col md:flex-row md:justify-between md:items-center space-y-2 md:space-y-0">
+
+                    <!-- ⏰ Business Hours -->
+                    <div class="text-sm font-medium flex items-center justify-center md:justify-start space-x-2">
+                        <i class="far fa-clock text-orange-400"></i>
+                        <span>Business Hours: 10 AM - 7 PM</span>
+                    </div>
+
+                    <!-- 📧 Contact + Social Links -->
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-center md:space-x-4 space-y-2 md:space-y-0">
+
+                        <!-- Email -->
+                        <a href="mailto:info@kunashenterprises.com"
+                            class="text-sm hover:text-orange-400 flex items-center space-x-1">
+                            <i class="fas fa-envelope text-orange-400"></i>
+                            <span>info@kunashenterprises.com</span>
+                        </a>
+
+                        <!-- Divider -->
+                        <span class="hidden md:block h-4 w-px bg-gray-600"></span>
+
+                        <!-- Phone -->
+                        <a href="tel:+1234567890" class="text-sm hover:text-orange-400 flex items-center space-x-1">
+                            <i class="fas fa-phone-alt text-orange-400"></i>
+                            <span>+91 93708 12640</span>
+                        </a>
+
+                        <!-- Divider -->
+                        <span class="hidden md:block h-4 w-px bg-gray-600"></span>
+
+                        <!-- 🌐 Social Icons -->
                         <div class="flex items-center space-x-3">
                             <a href="https://www.facebook.com/p/Kunash-Enterprises-100095164553847/" target="_blank"
                                 class="hover:text-orange-400">
@@ -274,83 +289,116 @@
                                 <i class="fab fa-linkedin-in text-orange-400 text-lg"></i>
                             </a>
                         </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="images/logoo.png" alt="Kunash Enterprises" class="w-32 md:w-40 lg:w-48 object-contain">
-            </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-700 hover:text-orange-600">Home</a>
-                <a href="products.html" class="text-gray-700 hover:text-orange-600">Products</a>
-                <a href="services.html" class="text-gray-700 hover:text-orange-600">Services</a>
-                <a href="about.html" class="text-orange-600 font-medium">About</a>
-                <a href="contact.html" class="text-gray-700 hover:text-orange-600">Contact</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <div class="relative" id="userProfileDropdown">
-                    <button id="userMenuButton"
-                        class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
-                        <i class="fas fa-user text-gray-700"></i>
-                    </button>
-                    <div id="guestMenu"
-                        class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden border border-gray-200">
-                        <a href="login.html"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login
-                        </a>
-                        <a href="signup.html"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
-                            <i class="fas fa-user-plus mr-2"></i>Sign Up
-                        </a>
-                    </div>
-                    <div id="userMenu"
-                        class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden border border-gray-200">
-                        <div class="px-4 py-2 border-b text-sm">
-                            <p class="font-medium text-gray-800">Hello, User!</p>
-                            <p class="text-xs text-gray-500">user@example.com</p>
+
+        <!-- Main Header/Navbar -->
+        <div class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/logoo.png" alt="Kunash Enterprises" class="w-32 md:w-40 lg:w-48 object-contain">
+                </div>
+        
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-orange-600">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-orange-600">Products</a>
+                    <a href="services.html" class="text-gray-700 hover:text-orange-600">Services</a>
+                    <a href="about.html" class="text-orange-600 font-medium">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-orange-600">Contact</a>
+                </nav>
+        
+                <div class="flex items-center space-x-4">
+                    <!-- Wishlist Icon (Always Visible) -->
+                    <a href="wishlist.html" class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-heart text-gray-700 text-xl"></i>
+                        <!-- Optional badge example -->
+                        <!-- <span class="absolute -top-1 -right-1 bg-orange-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span> -->
+                    </a>
+        
+                    <!-- Cart Icon (Always Visible) -->
+                    <a href="/cart.html" class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-shopping-cart text-gray-700 text-xl"></i>
+                        <!-- Optional badge example -->
+                        <!-- <span class="absolute -top-1 -right-1 bg-orange-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">5</span> -->
+                    </a>
+        
+                    <!-- User Profile Dropdown -->
+                    <div class="relative" id="userProfileDropdown">
+                        <button id="userMenuButton" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                            <i class="fas fa-user text-gray-700"></i>
+                        </button>
+        
+                        <!-- Dropdown Menu (Not Logged In) -->
+                        <div id="guestMenu"
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden border border-gray-200">
+                            <a href="login.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
+                                <i class="fas fa-sign-in-alt mr-2"></i>Login
+                            </a>
+                            <a href="signup.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
+                                <i class="fas fa-user-plus mr-2"></i>Sign Up
+                            </a>
                         </div>
-                        <a href="cart.html"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
-                            <i class="fas fa-shopping-cart mr-2"></i>Cart
-                        </a>
-                        <a href="wishlist.html"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
-                            <i class="fas fa-heart mr-2"></i>Wishlist
-                        </a>
-                        <a href="settings.html"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
-                            <i class="fas fa-cog mr-2"></i>Account Settings
-                        </a>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600"
-                            id="logoutButton">
-                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
-                        </a>
+        
+                        <!-- Dropdown Menu (Logged In) -->
+                        <div id="userMenu"
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden border border-gray-200">
+                            <div class="px-4 py-2 border-b text-sm">
+                                <p class="font-medium text-gray-800">Hello, User!</p>
+                                <p class="text-xs text-gray-500">user@example.com</p>
+                            </div>
+                            <a href="settings.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
+                                <i class="fas fa-cog mr-2"></i>Account Settings
+                            </a>
+                            <a href="#" id="logoutButton"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                            </a>
+                        </div>
                     </div>
+        
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuButton" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
-                <button id="mobileMenuButton" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+            </div>
+        
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white py-4 px-4 absolute w-full shadow-lg z-40">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-orange-600">Home</a>
+                <a href="products.html" class="block py-2 text-gray-700 hover:text-orange-600">Products</a>
+                <a href="services.html" class="block py-2 text-gray-700 hover:text-orange-600">Services</a>
+                <a href="about.html" class="block py-2 text-orange-600 font-medium">About</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-orange-600">Contact</a>
+        
+                <div class="flex justify-around border-t pt-4 mt-4">
+                    <a href="wishlist.html" class="flex flex-col items-center text-gray-700 hover:text-orange-600">
+                        <i class="fas fa-heart text-2xl"></i>
+                        <span class="text-xs mt-1">Wishlist</span>
+                    </a>
+                    <a href="cart.html" class="flex flex-col items-center text-gray-700 hover:text-orange-600">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                        <span class="text-xs mt-1">Cart</span>
+                    </a>
+                </div>
+        
+                <div class="border-t mt-4 pt-4">
+                    <a href="login.html" class="block py-2 text-gray-700 hover:text-orange-600">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </a>
+                    <a href="signup.html" class="block py-2 text-gray-700 hover:text-orange-600">
+                        <i class="fas fa-user-plus mr-2"></i>Sign Up
+                    </a>
+                </div>
             </div>
         </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-white py-4 px-4 absolute w-full shadow-lg">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-orange-600">Home</a>
-            <a href="products.html" class="block py-2 text-gray-700 hover:text-orange-600">Products</a>
-            <a href="services.html" class="block py-2 text-gray-700 hover:text-orange-600">Services</a>
-            <a href="about.html" class="block py-2 text-orange-600 font-medium">About</a>
-            <a href="contact.html" class="block py-2 text-gray-700 hover:text-orange-600">Contact</a>
-            <div class="border-t mt-2 pt-2" id="mobileUserMenu">
-                <a href="login.html" class="block py-2 text-gray-700 hover:text-orange-600">
-                    <i class="fas fa-sign-in-alt mr-2"></i>Login
-                </a>
-                <a href="signup.html" class="block py-2 text-gray-700 hover:text-orange-600">
-                    <i class="fas fa-user-plus mr-2"></i>Sign Up
-                </a>
-            </div>
-        </div>
-    </header>
+        </header>
 
     <!-- Hero Section -->
     <section class="relative bg-white text-orange-600 py-20 overflow-hidden bg-cover bg-center bg-no-repeat"
@@ -907,6 +955,202 @@
             if (statsSection) {
                 observer.observe(statsSection);
             }
+        });
+
+               document.addEventListener('DOMContentLoaded', function () {
+            // Header User Menu
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const guestMenu = document.getElementById('guestMenu');
+            const userMenu = document.getElementById('userMenu');
+            const mobileUserMenu = document.querySelector('#mobileMenu .border-t');
+            const userMenuButton = document.getElementById('userMenuButton');
+            const logoutButton = document.getElementById('logoutButton');
+
+            // Ensure both menus are hidden on page load
+            guestMenu.classList.add('hidden');
+            userMenu.classList.add('hidden');
+
+            // Update menu content based on login status
+            if (isLoggedIn) {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+                userMenu.querySelector('.font-medium').textContent = `Hello, ${currentUser.username || 'User'}!`;
+                userMenu.querySelector('.text-xs').textContent = currentUser.email || '';
+                mobileUserMenu.innerHTML = `
+            <a href="#" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-shopping-cart mr-2"></i>Cart</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-heart mr-2"></i>Wishlist</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-cog mr-2"></i>Account Settings</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-orange-600" id="mobileLogoutButton"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+        `;
+            } else {
+                mobileUserMenu.innerHTML = `
+            <a href="login.html" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+            <a href="signup.html" class="block py-2 text-gray-700 hover:text-orange-600"><i class="fas fa-user-plus mr-2"></i>Sign Up</a>
+        `;
+            }
+
+            // Toggle user menu on profile icon click
+            userMenuButton.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (isLoggedIn) {
+                    userMenu.classList.toggle('hidden');
+                    guestMenu.classList.add('hidden');
+                } else {
+                    guestMenu.classList.toggle('hidden');
+                    userMenu.classList.add('hidden');
+                }
+            });
+
+            // Close menus when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('#userProfileDropdown')) {
+                    guestMenu.classList.add('hidden');
+                    userMenu.classList.add('hidden');
+                }
+            });
+
+            // Logout functionality
+            if (logoutButton) {
+                logoutButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('currentUser');
+                    alert('Logged out successfully!');
+                    window.location.reload();
+                });
+            }
+
+            if (document.getElementById('mobileLogoutButton')) {
+                document.getElementById('mobileLogoutButton').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('currentUser');
+                    alert('Logged out successfully!');
+                    window.location.reload();
+                });
+            }
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            let menuOpen = false;
+            mobileMenuButton.addEventListener('click', () => {
+                if (menuOpen) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuButton.innerHTML = '<i class="fas fa-times text-xl"></i>';
+                }
+                menuOpen = !menuOpen;
+            });
+
+            // Scroll Progress Bar
+            window.onscroll = function () {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.querySelector('.progress-bar').style.width = scrolled + '%';
+
+                // Show/hide back to top button
+                const backToTop = document.getElementById('backToTop');
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    backToTop.classList.remove('opacity-0');
+                    backToTop.classList.add('opacity-100');
+                } else {
+                    backToTop.classList.remove('opacity-100');
+                    backToTop.classList.add('opacity-0');
+                }
+            };
+
+            // Back to top functionality
+            document.getElementById('backToTop').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Enhanced Banner Animation
+            setTimeout(() => {
+                const bannerImage = document.getElementById('banner-image');
+                bannerImage.classList.remove('opacity-0');
+                bannerImage.classList.add('animate-slide-left');
+            }, 200);
+
+            setTimeout(() => {
+                const bannerText = document.getElementById('banner-text');
+                bannerText.classList.remove('opacity-0');
+                bannerText.classList.add('animate-slide-right');
+            }, 600);
+
+            // Scroll Indicator
+            const indicator = document.getElementById('scroll-indicator');
+            if (indicator) {
+                function scrollToNextSection() {
+                    const hero = document.getElementById('hero-section');
+                    if (!hero) return;
+
+                    let next = hero.nextElementSibling;
+                    if (!next || ['SCRIPT', 'STYLE'].includes(next.tagName)) {
+                        next = document.querySelector('section[id]:not(#hero-section), div[id]:not(#hero-section)');
+                    }
+
+                    if (next) {
+                        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        return;
+                    }
+
+                    window.scrollTo({ top: hero.offsetTop + hero.offsetHeight, behavior: 'smooth' });
+                }
+
+                indicator.addEventListener('click', scrollToNextSection);
+                indicator.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        scrollToNextSection();
+                    }
+                });
+
+                indicator.style.zIndex = '9999';
+            }
+
+            // Auto-flip for mobile devices
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            function toggleAutoFlip() {
+                const flipCards = document.querySelectorAll('.flip-card');
+                flipCards.forEach(card => {
+                    if (isMobile()) {
+                        card.classList.add('auto-flip');
+                    } else {
+                        card.classList.remove('auto-flip');
+                    }
+                });
+            }
+
+            toggleAutoFlip();
+            window.addEventListener('resize', toggleAutoFlip);
+
+            // Countdown Timer for Special Offers
+            const countDownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+                if (distance <= 0) {
+                    document.getElementById("countdown").innerHTML = "<p class='text-2xl font-bold'>Offer Expired</p>";
+                    clearInterval(timer);
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+            }
+            const timer = setInterval(updateCountdown, 1000);
+            updateCountdown();
         });
     </script>
 </body>
